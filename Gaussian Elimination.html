@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>গাউসিয়ান অপসারণ পদ্ধতির প্রমাণ</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; padding: 20px; background: #f4f4f9; }
+        h1, h2 { color: #333366; }
+        .equation { background: #fff; padding: 10px; margin: 20px 0; border-left: 4px solid #333366; font-family: 'Courier New', monospace; overflow-x: auto; }
+        .equation-number { text-align: right; font-style: italic; }
+        .explanation { margin: 20px 0; background: #e9e9f0; padding: 15px; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <h1>গাউসিয়ান অপসারণ পদ্ধতি বা সরাসরি পদ্ধতি</h1>
+    <h2>থিওরি এবং প্রমাণ</h2>
+    <p>গাউসিয়ান অপসারণ পদ্ধতি সমীকরণ সমাধানের জন্য একটি কার্যকর পদ্ধতি, যা ধাপে ধাপে উপরের ত্রিকোণমাতৃক (Upper Triangular Matrix) গঠনের মাধ্যমে কাজ করে।</p>
+
+    <div class="equation">
+        Ax = B  ... (1)
+        <div class="equation-number">(1)</div>
+    </div>
+
+    <div class="explanation">
+        এখানে, <br>
+        A = <br>
+        <pre>
+        | a11 a12 ... a1n |
+        | a21 a22 ... a2n |
+        | ...   ... ... |
+        | an1 an2 ... ann |
+        </pre>
+        এবং, x = <pre>| x1 x2 ... xn |<sup>T</sup></pre> এবং B = <pre>| b1 b2 ... bn |<sup>T</sup></pre>
+    </div>
+
+    <h2>প্রথম ধাপ: প্রথম সারির উপাদান ব্যবহার করে অন্যান্য সারি শূন্য করা</h2>
+    <div class="equation">
+        R2 - (a21/a11) * R1 → R2<br>
+        R3 - (a31/a11) * R1 → R3<br>
+        ...<br>
+        Rn - (an1/a11) * R1 → Rn
+        <div class="equation-number">(2)</div>
+    </div>
+
+    <div class="explanation">
+        প্রথম সারির প্রথম উপাদানকে (a11) পিভট ধরে নিয়ে অন্যান্য সারির প্রথম উপাদানগুলোকে শূন্য করা হয়। 
+        এভাবে নতুন ম্যাট্রিক্স পাওয়া যায়:
+        <pre>
+        | a11  a12 ... a1n |  | x1 |   =   | b1  |
+        |  0   a22 ... a2n |  | x2 |       | b2' |
+        |  0    0  ... a3n |  | x3 |       | b3' |
+        | ...   ... ... |  |... |       | ... |
+        |  0    0  ... ann |  | xn |       | bn' |
+        </pre>
+    </div>
+
+    <h2>দ্বিতীয় ধাপ: দ্বিতীয় সারির পিভট ব্যবহার</h2>
+    <div class="equation">
+        R3 - (a32/a22) * R2 → R3<br>
+        ...<br>
+        Rn - (an2/a22) * R2 → Rn
+        <div class="equation-number">(3)</div>
+    </div>
+
+    <h2>চূড়ান্ত রূপান্তর</h2>
+    <div class="equation">
+        Ux = C  ... (4)
+        <div class="equation-number">(4)</div>
+    </div>
+
+    <div class="explanation">
+        যেখানে, U হল উপরের ত্রিকোণমাতৃক এবং C নতুন পরিবর্তিত ধ্রুবক ভেক্টর।
+        এই অবস্থায় Back Substitution পদ্ধতি প্রয়োগ করে x এর মান নির্ণয় করা হয়।
+    </div>
+
+    <h2>উপসংহার</h2>
+    <p>এভাবে, ধাপে ধাপে পিভট নির্বাচন এবং অন্যান্য উপাদান শূন্য করার মাধ্যমে গাউসিয়ান অপসারণ পদ্ধতি কাজ করে। প্রতিটি ধাপের গাণিতিক বিশ্লেষণ থেকে দেখা যায়, মূল সমীকরণ (1) থেকে (4) পর্যন্ত রূপান্তর সম্পূর্ণ যৌক্তিক এবং সঠিক সমাধান প্রদান করে।</p>
+</body>
+</html>
